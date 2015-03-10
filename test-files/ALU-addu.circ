@@ -39,8 +39,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x2"/>
+      <a name="width" val="16"/>
+      <a name="value" val="0x0"/>
     </tool>
     <tool name="Power">
       <a name="facing" val="south"/>
@@ -131,8 +131,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
     <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -166,16 +166,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <wire from="(40,100)" to="(40,160)"/>
     <wire from="(450,170)" to="(450,220)"/>
-    <wire from="(180,200)" to="(190,200)"/>
     <wire from="(450,220)" to="(470,220)"/>
+    <wire from="(180,200)" to="(190,200)"/>
     <wire from="(80,160)" to="(90,160)"/>
-    <wire from="(150,100)" to="(150,130)"/>
     <wire from="(180,160)" to="(180,200)"/>
+    <wire from="(150,100)" to="(150,130)"/>
     <wire from="(90,140)" to="(100,140)"/>
     <wire from="(360,160)" to="(360,200)"/>
     <wire from="(180,110)" to="(190,110)"/>
-    <wire from="(450,100)" to="(470,100)"/>
     <wire from="(170,60)" to="(170,160)"/>
+    <wire from="(450,100)" to="(470,100)"/>
     <wire from="(60,180)" to="(60,200)"/>
     <wire from="(330,110)" to="(360,110)"/>
     <wire from="(100,300)" to="(110,300)"/>
@@ -189,27 +189,49 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(180,110)" to="(180,160)"/>
     <wire from="(450,100)" to="(450,150)"/>
     <wire from="(40,230)" to="(40,290)"/>
-    <wire from="(430,170)" to="(450,170)"/>
     <wire from="(170,160)" to="(180,160)"/>
+    <wire from="(430,170)" to="(450,170)"/>
     <wire from="(360,160)" to="(400,160)"/>
-    <wire from="(50,310)" to="(60,310)"/>
     <wire from="(430,160)" to="(470,160)"/>
+    <wire from="(50,310)" to="(60,310)"/>
     <wire from="(90,160)" to="(170,160)"/>
-    <wire from="(140,130)" to="(150,130)"/>
     <wire from="(330,200)" to="(360,200)"/>
-    <wire from="(90,230)" to="(90,240)"/>
+    <wire from="(140,130)" to="(150,130)"/>
     <wire from="(90,120)" to="(100,120)"/>
-    <wire from="(40,290)" to="(60,290)"/>
+    <wire from="(90,230)" to="(90,240)"/>
     <wire from="(360,150)" to="(400,150)"/>
-    <wire from="(170,160)" to="(170,330)"/>
-    <wire from="(360,110)" to="(360,150)"/>
+    <wire from="(40,290)" to="(60,290)"/>
     <wire from="(90,140)" to="(90,160)"/>
+    <wire from="(360,110)" to="(360,150)"/>
+    <wire from="(170,160)" to="(170,330)"/>
     <wire from="(40,100)" to="(150,100)"/>
-    <comp lib="4" loc="(330,330)" name="ROM">
-      <a name="dataWidth" val="6"/>
-      <a name="contents">addr/data: 8 6
-1 1
+    <comp lib="4" loc="(330,110)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+f0f0f0f0 11110000
 </a>
+    </comp>
+    <comp lib="3" loc="(100,300)" name="Comparator"/>
+    <comp lib="3" loc="(140,130)" name="Adder"/>
+    <comp lib="4" loc="(330,200)" name="ROM">
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 8 32
+f0f0f0f 11110000
+</a>
+    </comp>
+    <comp lib="0" loc="(470,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Equal"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(50,310)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x2"/>
+    </comp>
+    <comp lib="4" loc="(80,160)" name="Register"/>
+    <comp lib="6" loc="(412,64)" name="Text">
+      <a name="text" val="YOUR ALU SHOULD FIT HERE"/>
     </comp>
     <comp lib="0" loc="(90,240)" name="Pin">
       <a name="facing" val="north"/>
@@ -218,63 +240,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Clock Count"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(50,310)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x2"/>
-    </comp>
-    <comp lib="6" loc="(443,407)" name="Text">
-      <a name="text" val="There should be no blue/red wires here, and the result shouldn't be x's."/>
-    </comp>
     <comp lib="0" loc="(60,200)" name="Clock">
       <a name="facing" val="north"/>
-    </comp>
-    <comp lib="4" loc="(330,110)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-f0f0f0f0 11110000
-</a>
-    </comp>
-    <comp lib="0" loc="(170,60)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="Test #"/>
-      <a name="labelloc" val="north"/>
     </comp>
     <comp lib="7" loc="(420,160)" name="main">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="3" loc="(140,130)" name="Adder"/>
-    <comp lib="0" loc="(470,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Equal"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="4" loc="(80,160)" name="Register"/>
-    <comp lib="0" loc="(90,120)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="6" loc="(412,64)" name="Text">
-      <a name="text" val="YOUR ALU SHOULD FIT HERE"/>
-    </comp>
-    <comp lib="0" loc="(110,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="halt"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,100)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Signed Overflow"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="4" loc="(330,200)" name="ROM">
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 8 32
-f0f0f0f 11110000
-</a>
+    <comp lib="6" loc="(443,407)" name="Text">
+      <a name="text" val="There should be no blue/red wires here, and the result shouldn't be x's."/>
     </comp>
     <comp lib="0" loc="(470,160)" name="Pin">
       <a name="facing" val="west"/>
@@ -283,6 +256,33 @@ f0f0f0f 11110000
       <a name="label" val="Result"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="3" loc="(100,300)" name="Comparator"/>
+    <comp lib="0" loc="(470,100)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Signed Overflow"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(110,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="halt"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(170,60)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="Test #"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(90,120)" name="Constant">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="4" loc="(330,330)" name="ROM">
+      <a name="dataWidth" val="6"/>
+      <a name="contents">addr/data: 8 6
+21 21
+</a>
+    </comp>
   </circuit>
 </project>
