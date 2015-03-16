@@ -73,7 +73,6 @@ functs = {
   'sll':0,
   'srl':2,
   'sra':3,
-  'jr':8,
   'slt':0x2a,
   'sltu':0x2b,
   'or':0x25,
@@ -228,7 +227,7 @@ def assemble_instructions(inputFile):
         immediate = int(shift.group('immed'),0)
         funct = functs[shift.group('instr')]
         shamt_check(immediate,lineNo)
-        num = 0 << 26 | 0 << 21 | rt << 16 | rd << 11 | (immediate & 31) << 6 | funct
+        num = 0 << 26 | rs << 21 | 0 << 16 | rd << 11 | (immediate & 31) << 6 | funct
         debug("instruction: %s rtype: rs: %d rd: %d shamt: %d funct:%d num: %04x" % (instruction,rs,rd,immediate,funct,num))
       elif immed:
         rs = registers[immed.group('rs')[1:]]
@@ -281,10 +280,9 @@ def assemble_instructions(inputFile):
         num = opcode << 26 | rs << 21 | rt << 16 | (offset & 0xFFFF)
         debug("instruction: %s rs: %d rt: %d opcode: %d offset: %d num: %04x" % (instruction,rs,rt,opcode,offset,num))
       elif jr:
-        rd = registers[jr.group('rd')[1:]]
         rs = registers[jr.group('rs')[1:]]
-        funct = functs[jr.group('instr')]
-        num = 0 << 26 | rs << 21 | 0 << 16 | rd << 11 | 0 << 6 | funct
+        opcode = opcodes[jr.group('instr')]
+        num = opcode << 26 | rs << 21
         debug("instruction: %s rs: %d num: %04x" % (instruction,rs,num))
       else:
         raise AssemblerSyntaxError(lineNo,"Can't parse instruction '%s'" % instruction)
