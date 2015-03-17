@@ -36,17 +36,17 @@ labelre = re.compile(r"""^(?P<labels>.*:)?(?P<gunk>[^:]*)$""")
 commentre = re.compile(r"""^(?P<important>[^#]*)(?P<comment>#.*)?$""")
 alnumunderre = re.compile(r"""^\w+$""")
 
-rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|slt|sltu|addu|subu))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
-new_re    = re.compile(r'''^(?P<instr>(bitpal|lfsr))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
-shift_re  = re.compile(r'''^(?P<instr>(sll|srl|sra))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-immed_re  = re.compile(r'''^(?P<instr>(ori|addiu|andi))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-lui_re    = re.compile(r'''^(?P<instr>lui)\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-mem_re    = re.compile(r'''^(?P<instr>(lw|sw|lb|lbu|sb))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)\s*\(\s*(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s*\)$''')
+rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|slt|sltu|addu|subu))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
+new_re    = re.compile(r'''^(?P<instr>(bitpal|lfsr))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
+shift_re  = re.compile(r'''^(?P<instr>(sll|srl|sra))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+immed_re  = re.compile(r'''^(?P<instr>(ori|addiu|andi))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+lui_re    = re.compile(r'''^(?P<instr>lui)\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+mem_re    = re.compile(r'''^(?P<instr>(lw|sw|lb|lbu|sb))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)\s*\(\s*(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s*\)$''')
 j_re      = re.compile(r'''^(?P<instr>(j|jal))\s+(?P<label>\w+)$''')
-branch_re = re.compile(r'''^(?P<instr>(beq|bne))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<label>\w+)$''') #note switch
-jr_re     = re.compile(r'''^(?P<instr>(jr))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
+branch_re = re.compile(r'''^(?P<instr>(beq|bne))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<label>\w+)$''') #note switch
+jr_re     = re.compile(r'''^(?P<instr>(jr))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
 signed_re = re.compile(r'addiu|beq|bne|lw|sw|sb|lb|lbu')
-la_re     = re.compile(r'''^(?P<instr>(la))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<label>\w+)$''')
+la_re     = re.compile(r'''^(?P<instr>(la))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<label>\w+)$''')
 both_allowed_re = re.compile(r'ori|andi')
 
 opcodes = {
