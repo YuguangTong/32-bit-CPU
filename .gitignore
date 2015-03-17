@@ -1,2 +1,5 @@
 .DS_Store
-test-files/*
+test-files/*~
+test-files/out-files/*~
+test-files/auto*
+*~
