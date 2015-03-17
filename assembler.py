@@ -73,6 +73,7 @@ functs = {
   'sll':0,
   'srl':2,
   'sra':3,
+  'jr':8,
   'slt':0x2a,
   'sltu':0x2b,
   'or':0x25,
@@ -281,8 +282,8 @@ def assemble_instructions(inputFile):
         debug("instruction: %s rs: %d rt: %d opcode: %d offset: %d num: %04x" % (instruction,rs,rt,opcode,offset,num))
       elif jr:
         rs = registers[jr.group('rs')[1:]]
-        opcode = opcodes[jr.group('instr')]
-        num = opcode << 26 | rs << 21
+        funct = functs[jr.group('instr')]
+        num = 0 << 26 | rs << 21 | 0 << 16 | 0 << 11 | 0 << 6 | funct
         debug("instruction: %s rs: %d num: %04x" % (instruction,rs,num))
       else:
         raise AssemblerSyntaxError(lineNo,"Can't parse instruction '%s'" % instruction)
