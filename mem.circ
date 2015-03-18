@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="2.7.2" version="1.0">
+<project source="2.7.1" version="1.0">
 This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -103,92 +103,62 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(570,330)" to="(570,340)"/>
-    <wire from="(570,290)" to="(570,300)"/>
-    <wire from="(570,300)" to="(570,310)"/>
-    <wire from="(190,350)" to="(250,350)"/>
+    <wire from="(440,80)" to="(490,80)"/>
+    <wire from="(670,270)" to="(700,270)"/>
+    <wire from="(520,180)" to="(540,180)"/>
+    <wire from="(340,120)" to="(340,170)"/>
     <wire from="(190,280)" to="(250,280)"/>
-    <wire from="(430,80)" to="(480,80)"/>
-    <wire from="(690,200)" to="(690,270)"/>
-    <wire from="(450,220)" to="(450,230)"/>
-    <wire from="(430,220)" to="(430,230)"/>
-    <wire from="(450,540)" to="(450,550)"/>
-    <wire from="(470,220)" to="(470,230)"/>
+    <wire from="(510,80)" to="(540,80)"/>
+    <wire from="(340,120)" to="(350,120)"/>
     <wire from="(250,540)" to="(250,550)"/>
-    <wire from="(310,180)" to="(310,190)"/>
-    <wire from="(570,300)" to="(610,300)"/>
-    <wire from="(690,200)" to="(730,200)"/>
-    <wire from="(450,250)" to="(450,270)"/>
+    <wire from="(700,200)" to="(700,270)"/>
+    <wire from="(540,180)" to="(730,180)"/>
+    <wire from="(190,180)" to="(260,180)"/>
+    <wire from="(760,190)" to="(780,190)"/>
+    <wire from="(550,260)" to="(560,260)"/>
+    <wire from="(300,190)" to="(320,190)"/>
+    <wire from="(580,330)" to="(580,340)"/>
+    <wire from="(550,280)" to="(560,280)"/>
+    <wire from="(440,220)" to="(440,230)"/>
+    <wire from="(460,260)" to="(460,270)"/>
+    <wire from="(520,180)" to="(520,290)"/>
+    <wire from="(550,250)" to="(560,250)"/>
+    <wire from="(190,350)" to="(250,350)"/>
+    <wire from="(460,220)" to="(460,240)"/>
+    <wire from="(600,270)" to="(630,270)"/>
     <wire from="(240,200)" to="(240,220)"/>
     <wire from="(740,210)" to="(740,230)"/>
-    <wire from="(500,80)" to="(530,80)"/>
-    <wire from="(760,190)" to="(780,190)"/>
-    <wire from="(330,180)" to="(360,180)"/>
-    <wire from="(660,270)" to="(690,270)"/>
-    <wire from="(510,180)" to="(510,290)"/>
-    <wire from="(590,270)" to="(620,270)"/>
-    <wire from="(510,180)" to="(530,180)"/>
-    <wire from="(530,80)" to="(530,180)"/>
+    <wire from="(510,180)" to="(520,180)"/>
+    <wire from="(540,80)" to="(540,180)"/>
+    <wire from="(450,540)" to="(450,550)"/>
+    <wire from="(520,290)" to="(530,290)"/>
+    <wire from="(340,180)" to="(370,180)"/>
+    <wire from="(420,220)" to="(420,230)"/>
+    <wire from="(320,180)" to="(320,190)"/>
+    <wire from="(550,270)" to="(560,270)"/>
     <wire from="(240,200)" to="(260,200)"/>
-    <wire from="(530,180)" to="(730,180)"/>
-    <wire from="(500,180)" to="(510,180)"/>
-    <wire from="(510,290)" to="(520,290)"/>
-    <wire from="(300,190)" to="(310,190)"/>
-    <wire from="(330,120)" to="(340,120)"/>
-    <wire from="(330,120)" to="(330,170)"/>
-    <wire from="(190,180)" to="(260,180)"/>
-    <wire from="(410,220)" to="(410,280)"/>
-    <wire from="(540,280)" to="(550,280)"/>
-    <wire from="(540,260)" to="(550,260)"/>
-    <wire from="(540,250)" to="(550,250)"/>
-    <wire from="(540,270)" to="(550,270)"/>
-    <comp lib="0" loc="(490,90)" name="Tunnel">
+    <wire from="(580,290)" to="(580,310)"/>
+    <wire from="(700,200)" to="(730,200)"/>
+    <wire from="(480,220)" to="(480,230)"/>
+    <comp lib="0" loc="(460,270)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="M_W"/>
     </comp>
-    <comp lib="2" loc="(590,270)" name="Multiplexer">
-      <a name="select" val="2"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="6" loc="(103,130)" name="Text">
-      <a name="text" val="These are INPUTS to the circuit"/>
-    </comp>
-    <comp lib="0" loc="(450,540)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="clk"/>
-    </comp>
-    <comp lib="0" loc="(340,120)" name="Tunnel">
-      <a name="width" val="2"/>
-      <a name="label" val="sel_byte"/>
-    </comp>
-    <comp lib="0" loc="(450,550)" name="Pin">
+    <comp lib="0" loc="(420,230)" name="Constant">
       <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(190,350)" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="CLOCK"/>
+      <a name="label" val="ACCESS_BYTE"/>
     </comp>
-    <comp lib="1" loc="(500,80)" name="Controlled Buffer">
+    <comp lib="0" loc="(780,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
       <a name="width" val="32"/>
+      <a name="label" val="Data Mem Out"/>
+      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(250,280)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="mem_in"/>
-    </comp>
-    <comp lib="0" loc="(570,340)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="sel_byte"/>
-    </comp>
-    <comp lib="0" loc="(240,220)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="width" val="32"/>
-      <a name="value" val="0x10010000"/>
-    </comp>
-    <comp lib="1" loc="(570,310)" name="NOT Gate">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(310,180)" name="Splitter">
+    <comp lib="0" loc="(320,180)" name="Splitter">
       <a name="fanout" val="3"/>
       <a name="incoming" val="32"/>
       <a name="appear" val="center"/>
@@ -224,12 +194,52 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="2"/>
       <a name="bit31" val="2"/>
     </comp>
-    <comp lib="0" loc="(190,280)" name="Pin">
-      <a name="width" val="32"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Data Mem In"/>
+    <comp lib="0" loc="(250,350)" name="Tunnel">
+      <a name="label" val="access_byte"/>
     </comp>
-    <comp lib="4" loc="(500,180)" name="RAM">
+    <comp lib="6" loc="(853,129)" name="Text">
+      <a name="text" val="This is an OUTPUT to the circuit"/>
+    </comp>
+    <comp lib="0" loc="(450,550)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="CLOCK"/>
+    </comp>
+    <comp lib="6" loc="(339,599)" name="Text">
+      <a name="text" val="These are INPUTS to the circuit"/>
+    </comp>
+    <comp lib="2" loc="(600,270)" name="Multiplexer">
+      <a name="select" val="2"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="1" loc="(460,240)" name="NOT Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(500,90)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="M_W"/>
+    </comp>
+    <comp lib="0" loc="(440,80)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="mem_in"/>
+    </comp>
+    <comp lib="3" loc="(300,190)" name="Subtractor">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(250,540)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="M_W"/>
+    </comp>
+    <comp lib="6" loc="(103,130)" name="Text">
+      <a name="text" val="These are INPUTS to the circuit"/>
+    </comp>
+    <comp lib="0" loc="(480,230)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="4" loc="(510,180)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="dataWidth" val="32"/>
     </comp>
@@ -238,7 +248,30 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="MEM_WRITE"/>
     </comp>
-    <comp lib="0" loc="(520,290)" name="Splitter">
+    <comp lib="0" loc="(250,280)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="mem_in"/>
+    </comp>
+    <comp lib="6" loc="(435,19)" name="Text">
+      <a name="text" val="DO NOT CHANGE THE LOCATIONS OF THE INPUTS/OUTPUTS! IF YOU DO SO, YOU NEED TO MAKE SURE THE PINS ARE AT THE RIGHT PLACE!"/>
+    </comp>
+    <comp lib="0" loc="(190,180)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Data Mem Addr"/>
+    </comp>
+    <comp lib="0" loc="(240,220)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="width" val="32"/>
+      <a name="value" val="0x10010000"/>
+    </comp>
+    <comp lib="2" loc="(760,190)" name="Multiplexer">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(670,270)" name="Bit Extender">
+      <a name="out_width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(530,290)" name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="32"/>
       <a name="bit1" val="0"/>
@@ -273,81 +306,42 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit30" val="3"/>
       <a name="bit31" val="3"/>
     </comp>
-    <comp lib="0" loc="(430,230)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="clk"/>
-    </comp>
-    <comp lib="2" loc="(760,190)" name="Multiplexer">
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(610,300)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="10unsigned"/>
-    </comp>
-    <comp lib="0" loc="(470,230)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(496,586)" name="Text">
-      <a name="text" val="Yet again, the clock is not an actual clock, but an input, one that will be driven from a higher circuit"/>
-    </comp>
-    <comp lib="0" loc="(250,350)" name="Tunnel">
-      <a name="label" val="access_byte"/>
-    </comp>
-    <comp lib="0" loc="(410,280)" name="Constant">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(450,270)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="M_W"/>
-    </comp>
-    <comp lib="0" loc="(190,350)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="ACCESS_BYTE"/>
-    </comp>
-    <comp lib="1" loc="(450,230)" name="NOT Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(250,540)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="M_W"/>
-    </comp>
-    <comp lib="6" loc="(853,129)" name="Text">
-      <a name="text" val="This is an OUTPUT to the circuit"/>
-    </comp>
-    <comp lib="0" loc="(190,180)" name="Pin">
+    <comp lib="0" loc="(190,280)" name="Pin">
       <a name="width" val="32"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="Data Mem Addr"/>
+      <a name="label" val="Data Mem In"/>
     </comp>
     <comp lib="0" loc="(740,230)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="access_byte"/>
     </comp>
-    <comp lib="6" loc="(435,19)" name="Text">
-      <a name="text" val="DO NOT CHANGE THE LOCATIONS OF THE INPUTS/OUTPUTS! IF YOU DO SO, YOU NEED TO MAKE SURE THE PINS ARE AT THE RIGHT PLACE!"/>
+    <comp lib="6" loc="(496,586)" name="Text">
+      <a name="text" val="Yet again, the clock is not an actual clock, but an input, one that will be driven from a higher circuit"/>
     </comp>
-    <comp lib="0" loc="(660,270)" name="Bit Extender">
-      <a name="out_width" val="32"/>
+    <comp lib="0" loc="(450,540)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="clk"/>
     </comp>
-    <comp lib="0" loc="(780,190)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
+    <comp lib="0" loc="(580,340)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="sel_byte"/>
+    </comp>
+    <comp lib="1" loc="(580,310)" name="NOT Gate">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="1" loc="(510,80)" name="Controlled Buffer">
       <a name="width" val="32"/>
-      <a name="label" val="Data Mem Out"/>
-      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(430,80)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="mem_in"/>
+    <comp lib="0" loc="(350,120)" name="Tunnel">
+      <a name="width" val="2"/>
+      <a name="label" val="sel_byte"/>
     </comp>
-    <comp lib="6" loc="(339,599)" name="Text">
-      <a name="text" val="These are INPUTS to the circuit"/>
-    </comp>
-    <comp lib="3" loc="(300,190)" name="Subtractor">
-      <a name="width" val="32"/>
+    <comp lib="0" loc="(440,230)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="clk"/>
     </comp>
   </circuit>
 </project>
