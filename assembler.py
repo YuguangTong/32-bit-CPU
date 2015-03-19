@@ -228,7 +228,7 @@ def assemble_instructions(inputFile):
         immediate = int(shift.group('immed'),0)
         funct = functs[shift.group('instr')]
         shamt_check(immediate,lineNo)
-        num = 0 << 26 | rs << 21 | 0 << 16 | rd << 11 | (immediate & 31) << 6 | funct
+        num = 0 << 26 | 0 << 21 | rt << 16 | rd << 11 | (immediate & 31) << 6 | funct
         debug("instruction: %s rtype: rs: %d rd: %d shamt: %d funct:%d num: %04x" % (instruction,rs,rd,immediate,funct,num))
       elif immed:
         rs = registers[immed.group('rs')[1:]]
