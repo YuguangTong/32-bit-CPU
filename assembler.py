@@ -36,17 +36,17 @@ labelre = re.compile(r"""^(?P<labels>.*:)?(?P<gunk>[^:]*)$""")
 commentre = re.compile(r"""^(?P<important>[^#]*)(?P<comment>#.*)?$""")
 alnumunderre = re.compile(r"""^\w+$""")
 
-rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|slt|sltu|addu|subu))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
-new_re    = re.compile(r'''^(?P<instr>(bitpal|lfsr))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
-shift_re  = re.compile(r'''^(?P<instr>(sll|srl|sra))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-immed_re  = re.compile(r'''^(?P<instr>(ori|addiu|andi))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-lui_re    = re.compile(r'''^(?P<instr>lui)\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
-mem_re    = re.compile(r'''^(?P<instr>(lw|sw|lb|lbu|sb))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)\s*\(\s*(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s*\)$''')
+rtype_re  = re.compile(r'''^(?P<instr>(or|and|add|sub|slt|sltu|addu|subu))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
+new_re    = re.compile(r'''^(?P<instr>(bitpal|lfsr))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
+shift_re  = re.compile(r'''^(?P<instr>(sll|srl|sra))\s+(?P<rd>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+immed_re  = re.compile(r'''^(?P<instr>(ori|addiu|andi))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+lui_re    = re.compile(r'''^(?P<instr>lui)\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)$''')
+mem_re    = re.compile(r'''^(?P<instr>(lw|sw|lb|lbu|sb))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<immed>-?(0x)?[0-9a-fA-F]+)\s*\(\s*(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s*\)$''')
 j_re      = re.compile(r'''^(?P<instr>(j|jal))\s+(?P<label>\w+)$''')
-branch_re = re.compile(r'''^(?P<instr>(beq|bne))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<label>\w+)$''') #note switch
-jr_re     = re.compile(r'''^(?P<instr>(jr))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))$''')
+branch_re = re.compile(r'''^(?P<instr>(beq|bne))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|sp|fp|ra))\s+(?P<label>\w+)$''') #note switch
+jr_re     = re.compile(r'''^(?P<instr>(jr))\s+(?P<rs>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))$''')
 signed_re = re.compile(r'addiu|beq|bne|lw|sw|sb|lb|lbu')
-la_re     = re.compile(r'''^(?P<instr>(la))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|ra))\s+(?P<label>\w+)$''')
+la_re     = re.compile(r'''^(?P<instr>(la))\s+(?P<rt>\$(0|zero|at|v[0,1]|a[0-3]|t[0-9]|s[0-7]|k[0-1]|gp|fp|sp|ra))\s+(?P<label>\w+)$''')
 both_allowed_re = re.compile(r'ori|andi')
 
 opcodes = {
@@ -73,6 +73,7 @@ functs = {
   'sll':0,
   'srl':2,
   'sra':3,
+  'jr':8,
   'slt':0x2a,
   'sltu':0x2b,
   'or':0x25,
@@ -227,7 +228,7 @@ def assemble_instructions(inputFile):
         immediate = int(shift.group('immed'),0)
         funct = functs[shift.group('instr')]
         shamt_check(immediate,lineNo)
-        num = 0 << 26 | rs << 21 | 0 << 16 | rd << 11 | (immediate & 31) << 6 | funct
+        num = 0 << 26 | 0 << 21 | rt << 16 | rd << 11 | (immediate & 31) << 6 | funct
         debug("instruction: %s rtype: rs: %d rd: %d shamt: %d funct:%d num: %04x" % (instruction,rs,rd,immediate,funct,num))
       elif immed:
         rs = registers[immed.group('rs')[1:]]
@@ -281,8 +282,8 @@ def assemble_instructions(inputFile):
         debug("instruction: %s rs: %d rt: %d opcode: %d offset: %d num: %04x" % (instruction,rs,rt,opcode,offset,num))
       elif jr:
         rs = registers[jr.group('rs')[1:]]
-        opcode = opcodes[jr.group('instr')]
-        num = opcode << 26 | rs << 21
+        funct = functs[jr.group('instr')]
+        num = 0 << 26 | rs << 21 | 0 << 16 | 0 << 11 | 0 << 6 | funct
         debug("instruction: %s rs: %d num: %04x" % (instruction,rs,num))
       else:
         raise AssemblerSyntaxError(lineNo,"Can't parse instruction '%s'" % instruction)

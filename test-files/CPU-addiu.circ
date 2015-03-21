@@ -21,6 +21,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <tool name="Clock">
       <a name="facing" val="north"/>
     </tool>
+    <tool name="Constant">
+      <a name="facing" val="north"/>
+    </tool>
     <tool name="Bit Extender">
       <a name="in_width" val="32"/>
       <a name="out_width" val="24"/>
@@ -216,51 +219,72 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(560,270)" to="(570,270)"/>
     <wire from="(770,140)" to="(770,320)"/>
     <wire from="(890,480)" to="(890,530)"/>
-    <comp lib="0" loc="(700,330)" name="Tunnel">
-      <a name="facing" val="east"/>
+    <comp lib="0" loc="(800,370)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="RD"/>
+    </comp>
+    <comp lib="0" loc="(570,270)" name="Tunnel">
       <a name="width" val="32"/>
-      <a name="label" val="RS_READ_VALUE"/>
+      <a name="label" val="RT_READ_VALUE"/>
     </comp>
-    <comp lib="3" loc="(880,530)" name="Adder">
+    <comp lib="0" loc="(800,430)" name="Tunnel">
       <a name="width" val="24"/>
-    </comp>
-    <comp lib="0" loc="(820,510)" name="Constant">
-      <a name="facing" val="south"/>
-      <a name="width" val="24"/>
+      <a name="label" val="FETCH_ADDRESS"/>
     </comp>
     <comp lib="0" loc="(150,510)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="32"/>
       <a name="label" val="RD_WRITE_VALUE"/>
     </comp>
-    <comp lib="0" loc="(240,630)" name="Tunnel">
+    <comp lib="0" loc="(700,440)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="24"/>
-      <a name="label" val="FETCH_ADDRESS"/>
+      <a name="width" val="32"/>
+      <a name="label" val="INSTRUCTION"/>
     </comp>
-    <comp lib="7" loc="(560,370)" name="MIPS Register File"/>
+    <comp lib="0" loc="(820,510)" name="Constant">
+      <a name="facing" val="south"/>
+      <a name="width" val="24"/>
+    </comp>
+    <comp lib="0" loc="(150,230)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="RD"/>
+    </comp>
     <comp lib="4" loc="(410,630)" name="ROM">
       <a name="addrWidth" val="24"/>
       <a name="dataWidth" val="32"/>
       <a name="contents">addr/data: 24 32
-3c080035 35090023 3508002d 1285020
+25080022 2509002b 252affdd 250b0035 250a0062 2529002b 250a0064 250aff80
 </a>
-    </comp>
-    <comp lib="0" loc="(800,390)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="RD_WRITE_VALUE"/>
     </comp>
     <comp lib="0" loc="(560,580)" name="Clock">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="0" loc="(910,640)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="halt"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="0" loc="(570,250)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="RS_READ_VALUE"/>
     </comp>
     <comp lib="0" loc="(800,410)" name="Tunnel">
       <a name="label" val="RD_WRITE_ENABLE"/>
+    </comp>
+    <comp lib="0" loc="(210,660)" name="Probe">
+      <a name="radix" val="10unsigned"/>
+      <a name="label" val="Requested Address"/>
+    </comp>
+    <comp lib="0" loc="(700,350)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="RT_READ_VALUE"/>
+    </comp>
+    <comp lib="8" loc="(790,320)" name="main">
+      <a name="label" val="CPU"/>
+      <a name="labelloc" val="west"/>
+    </comp>
+    <comp lib="7" loc="(560,370)" name="MIPS Register File"/>
+    <comp lib="0" loc="(450,700)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="Instruction"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(860,140)" name="Pin">
       <a name="facing" val="south"/>
@@ -269,73 +293,47 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="$t3"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="0" loc="(700,440)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="INSTRUCTION"/>
-    </comp>
-    <comp lib="0" loc="(570,270)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="RT_READ_VALUE"/>
-    </comp>
-    <comp lib="0" loc="(800,370)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="RD"/>
-    </comp>
-    <comp lib="0" loc="(150,230)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="RD"/>
-    </comp>
-    <comp lib="0" loc="(440,630)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="INSTRUCTION"/>
-    </comp>
-    <comp lib="8" loc="(790,320)" name="main">
-      <a name="label" val="CPU"/>
-      <a name="labelloc" val="west"/>
-    </comp>
-    <comp lib="0" loc="(800,330)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="RS"/>
-    </comp>
-    <comp lib="0" loc="(150,250)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="RS"/>
-    </comp>
-    <comp lib="0" loc="(590,140)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="label" val="$t0"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="4" loc="(810,540)" name="Register">
+    <comp lib="3" loc="(880,530)" name="Adder">
       <a name="width" val="24"/>
-    </comp>
-    <comp lib="0" loc="(800,350)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="RT"/>
-    </comp>
-    <comp lib="0" loc="(900,570)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="24"/>
-      <a name="label" val="Clock Count"/>
-      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(840,650)" name="Constant">
       <a name="width" val="24"/>
       <a name="value" val="0x6"/>
     </comp>
-    <comp lib="0" loc="(800,430)" name="Tunnel">
+    <comp lib="0" loc="(800,350)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="RT"/>
+    </comp>
+    <comp lib="0" loc="(150,270)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="RT"/>
+    </comp>
+    <comp lib="0" loc="(440,630)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="INSTRUCTION"/>
+    </comp>
+    <comp lib="4" loc="(810,540)" name="Register">
+      <a name="width" val="24"/>
+    </comp>
+    <comp lib="0" loc="(800,390)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="RD_WRITE_VALUE"/>
+    </comp>
+    <comp lib="0" loc="(240,630)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="width" val="24"/>
       <a name="label" val="FETCH_ADDRESS"/>
     </comp>
-    <comp lib="0" loc="(210,660)" name="Probe">
-      <a name="radix" val="10unsigned"/>
-      <a name="label" val="Requested Address"/>
+    <comp lib="0" loc="(910,640)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="halt"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(150,490)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="RD_WRITE_ENABLE"/>
     </comp>
     <comp lib="0" loc="(770,140)" name="Pin">
       <a name="facing" val="south"/>
@@ -344,18 +342,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="$t2"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="3" loc="(890,640)" name="Comparator">
-      <a name="width" val="24"/>
-    </comp>
-    <comp lib="0" loc="(570,250)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="RS_READ_VALUE"/>
-    </comp>
-    <comp lib="0" loc="(700,350)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="RT_READ_VALUE"/>
-    </comp>
     <comp lib="0" loc="(680,140)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
@@ -363,19 +349,36 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="$t1"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="0" loc="(150,270)" name="Tunnel">
+    <comp lib="0" loc="(150,250)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="width" val="5"/>
-      <a name="label" val="RT"/>
+      <a name="label" val="RS"/>
     </comp>
-    <comp lib="0" loc="(450,700)" name="Probe">
+    <comp lib="0" loc="(900,570)" name="Pin">
       <a name="facing" val="west"/>
-      <a name="label" val="Instruction"/>
+      <a name="output" val="true"/>
+      <a name="width" val="24"/>
+      <a name="label" val="Clock Count"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(150,490)" name="Tunnel">
+    <comp lib="0" loc="(800,330)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="RS"/>
+    </comp>
+    <comp lib="3" loc="(890,640)" name="Comparator">
+      <a name="width" val="24"/>
+    </comp>
+    <comp lib="0" loc="(700,330)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="RD_WRITE_ENABLE"/>
+      <a name="width" val="32"/>
+      <a name="label" val="RS_READ_VALUE"/>
+    </comp>
+    <comp lib="0" loc="(590,140)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="32"/>
+      <a name="label" val="$t0"/>
+      <a name="labelloc" val="north"/>
     </comp>
   </circuit>
 </project>
